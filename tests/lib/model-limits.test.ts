@@ -55,6 +55,10 @@ describe("limitsFor", () => {
 			context: 200000,
 			trigger: 180000,
 		});
+		expect(limitsFor("zai-org/GLM-5.3-Flash")).toEqual({
+			context: 262144,
+			trigger: 235930,
+		});
 	});
 
 	test("falls back to the 200K default for an unrecognized model", () => {

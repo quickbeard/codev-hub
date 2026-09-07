@@ -965,6 +965,10 @@ describe("configureCodex", () => {
 		configureCodex({ apiKey: "sk-codex", model: "zai-org/GLM-4.7-cc" });
 		expect(readCodexToml().model_context_window).toBe(200000);
 		expect(readCodexToml().model_auto_compact_token_limit).toBe(180000);
+
+		configureCodex({ apiKey: "sk-codex", model: "zai-org/GLM-5.3-Flash" });
+		expect(readCodexToml().model_context_window).toBe(262144);
+		expect(readCodexToml().model_auto_compact_token_limit).toBe(235930);
 	});
 
 	test("does not touch ~/.claude.json (Codex-only install)", async () => {
